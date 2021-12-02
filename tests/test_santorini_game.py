@@ -1,1 +1,1 @@
-from .context import santorini_game
+from context import santorini_game
