@@ -1,5 +1,4 @@
 import os
-from . import board
 from . import utils
 from termcolor import colored, cprint
 
@@ -8,8 +7,8 @@ class Display:
     ROW_BREAK = "---------------------"
     LEGEND_SPACING = "          "
     def __init__(self, board) -> None:
-        self.board = board.Board()
-    
+        self.board = board
+        
     def print_board(self):
         print(self.ROW_BREAK)
         for row in range(4, -1, -1):
@@ -26,7 +25,7 @@ class Display:
 
     def print_legend(self, row_num):
         print(self.LEGEND_SPACING, end="")
-        cprint("level {row_num}", Display.COLOR[row_num])
+        cprint("level {row_num}", "white", Display.COLOR[row_num])
 
     def render(self):
         self.clear        
