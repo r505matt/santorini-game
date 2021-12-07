@@ -1,21 +1,22 @@
 import os
-from . import utils
-from termcolor import colored, cprint
+import utils
+import board
+from termcolor import cprint
 
 class Display:
-    COLORS = utils.COLORS
-    ROW_BREAK = "---------------------"
+    COLORS = utils.Constants.COLORS
+    ROW_BREAK = "----------------"
     LEGEND_SPACING = "          "
     def __init__(self, board) -> None:
         self.board = board
-        
+
     def print_board(self):
         print(self.ROW_BREAK)
         for row in range(4, -1, -1):
             print("|", end = "")
             for col in range(5):
-                level = self.board[row, col].get_level()
-                cprint("  ", "white", Display.COLORS[level], end="")
+                level = self.board.board_level([row, col]) #Dunno what's wrong here, need to figure out inheritance
+                cprint("  ", "white", self.COLORS[level], end="")
                 print("|", end="")
             self.print_legend(row)
             print(self.ROW_BREAK)
@@ -25,10 +26,11 @@ class Display:
 
     def print_legend(self, row_num):
         print(self.LEGEND_SPACING, end="")
-        cprint("level {row_num}", "white", Display.COLOR[row_num])
+        cprint("level {}".format(row_num), "grey", self.COLORS[row_num])
 
     def render(self):
-        self.clear        
-        self.print_board
+        self.clear()        
+        self.print_board()
         print(" ")
         print("Directions?")
+        x = input()
