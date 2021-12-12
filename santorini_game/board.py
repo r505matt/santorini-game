@@ -10,7 +10,9 @@ class Board:
         return self.grid[row][col]
 
     def is_valid_move(self, start, end):
-        if self[start].get_level() - self[end].get_level() <= -2:
+        if self[start].get_level() - self[end].get_level() <= -2: #cannot jump up 2 levels, can jump down
+            return False
+        elif end[0] < 0 or end[0] > 4 or end[1] < 0 or end[1] > 4: #checks for out of bounds
             return False
         else:
             return True
@@ -22,13 +24,12 @@ class Board:
             new_row = current_row + change_row_col_tuple[0]
             new_col = current_col + change_row_col_tuple[1]
             new_pos = [new_row, new_col]
-            if (new_row or new_col) < 0:
-                next
-            elif (new_row or new_col) > 4:
-                next
-            elif self.is_valid_move(self, pos, new_pos):
+            if self.is_valid_move(self, pos, new_pos):
                 valid_moves.append(direction)
         return valid_moves
 
     def board_level(self, pos):
          return self[pos].get_level()
+
+    def move_player_token(self, token, end_pos):
+        pass

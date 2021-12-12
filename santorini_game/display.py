@@ -15,7 +15,7 @@ class Display:
         for row in range(4, -1, -1):
             print("|", end = "")
             for col in range(5):
-                level = self.board.board_level([row, col]) #Dunno what's wrong here, need to figure out inheritance
+                level = self.board.board_level([row, col])
                 cprint("  ", "white", self.COLORS[level], end="")
                 print("|", end="")
             self.print_legend(row)
