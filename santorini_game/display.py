@@ -5,7 +5,7 @@ from termcolor import cprint
 
 class Display:
     COLORS = utils.Constants.COLORS
-    ROW_BREAK = "----------------"
+    ROW_BREAK = "---------------------"
     LEGEND_SPACING = "          "
     def __init__(self, board) -> None:
         self.board = board
@@ -16,7 +16,7 @@ class Display:
             print("|", end = "")
             for col in range(5):
                 level = self.board.board_level([row, col])
-                cprint("  ", "white", self.COLORS[level], end="")
+                cprint("   ", "white", self.COLORS[level], end="")
                 print("|", end="")
             self.print_legend(row)
             print(self.ROW_BREAK)

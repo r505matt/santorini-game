@@ -9,6 +9,9 @@ class Player:
             token_count = 2
         for i in range(token_count):
             self.tokens.append(token.Token(self, player_symbol))
+
+    def player_setup_starting_tokens(self, board): 
+        pass
     
     def choose_token(self):
         pass
