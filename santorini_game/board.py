@@ -7,6 +7,9 @@ class Board:
         self.tokens = []
         self.token_positions = []
 
+    def get_token_positions(self):
+        return self.token_positions
+        
     def __getitem__(self, index: list):
         row, col = index[0], index[1]
         return self.grid[row][col]
@@ -28,6 +31,11 @@ class Board:
             return False
         else:
             return True
+
+    def board_get_token(self, pos):
+        for token in self.tokens:
+            if token.get_pos == pos:
+                return token
 
     def update_token_positions(self):
         self.token_positions = []

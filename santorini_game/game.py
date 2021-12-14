@@ -27,9 +27,9 @@ class Game:
 
     def choose_symbol(self):
         player_symbol = ""
-        while not player_symbol.isalnum() or len(player_symbol) != 1:
+        while not player_symbol.isalnum() or len(player_symbol) != 1: #TODO error checking, should only be 1 alphanum, seems off
             print("Choose a player symbol: ")
-            player_symbol = input()
+            player_symbol = input() 
             if player_symbol in self.chosen_symbols:
                 print("Symbol already chosen")
                 player_symbol = ""
@@ -40,7 +40,7 @@ class Game:
         placed_tokens = []
         while len(placed_tokens) != 4: # part of above TODO
             current_player = self.players[self.current_player_index]
-            token = current_player.player_setup_starting_tokens(self.board)
+            token = current_player.place_starting_tokens(self.board)
             placed_tokens.append(token)
             self.board.add_token(token)
             self.next_player()
