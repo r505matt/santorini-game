@@ -44,8 +44,6 @@ class Game:
             placed_tokens.append(token)
             self.board.add_token(token)
             self.next_player()
-        
-
 
     def run_game(self):
         self.display.render()

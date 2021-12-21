@@ -1,4 +1,4 @@
-import token
+import player_token
 
 class Player:
     def __init__(self, num_players, player_symbol) -> None:
@@ -8,7 +8,7 @@ class Player:
         else:
             token_count = 2
         for i in range(token_count):
-            new_token = token.Token(self, player_symbol)
+            new_token = player_token.Player_Token(self, player_symbol)
             self.tokens.append(new_token)
         self.place_tokens_index = 0
 
