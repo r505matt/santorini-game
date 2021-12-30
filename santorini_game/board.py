@@ -26,21 +26,21 @@ class Board:
         else: 
             return True
     
-    def isempty(self, pos): #needs to account for where tokens are
+    def isempty(self, pos): #needs to account for where tokens are token
         if pos in self.token_positions:
             return False
         else:
             return True
 
-    def board_get_token(self, pos):
-        for token in self.tokens:
-            if token.get_pos == pos:
-                return token
+    def board_get_token(self, pos): #something broken here, this is what's messing everything up
+        for player_token in self.tokens:
+            if player_token.get_pos() == pos:
+                return player_token
 
     def update_token_positions(self):
         self.token_positions = []
-        for token in self.tokens:
-            self.token_positions.append(token.get_pos())
+        for player_token in self.tokens:
+            self.token_positions.append(player_token.get_pos())
 
     def get_valid_moves(self, pos) -> list:
         valid_moves = []
@@ -55,7 +55,7 @@ class Board:
 
     def add_token(self, token):
         self.tokens.append(token)
-        self.update_token_positions
+        self.update_token_positions()
 
     def board_level(self, pos):
          return self[pos].get_level()

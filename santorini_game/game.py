@@ -39,14 +39,16 @@ class Game:
     def starting_positions(self): # TODO make the game capable of 2-4 players
         placed_tokens = []
         while len(placed_tokens) != 4: # part of above TODO
+            self.display.render()
             current_player = self.players[self.current_player_index]
-            token = current_player.place_starting_tokens(self.board)
-            placed_tokens.append(token)
-            self.board.add_token(token)
+            player_token = current_player.place_starting_tokens(self.board)
+            placed_tokens.append(player_token)
+            self.board.add_token(player_token)
             self.next_player()
 
     def run_game(self):
         self.display.render()
+        x = input()
 
     def next_player(self):
         self.current_player_index = (self.player_count + self.current_player_index + 1) % self.player_count
