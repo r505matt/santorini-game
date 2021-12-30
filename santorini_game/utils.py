@@ -6,4 +6,4 @@ class Constants:
     COLORS = {0: "on_white", 1: "on_red", 2: "on_yellow" , 3: "on_green", 4: "on_blue"}
 
     ROWS = ["A","B","C","D","E"]
-    COLS = [0, 1, 2, 3, 4]
+    COLS = ["1", "2", "3", "4", "5"]

@@ -17,7 +17,9 @@ class Display:
             print("|", end = "")
             for col in range(5):
                 current = [row, col]
-                if self.board.isempty(current):
+                if self.board.isempty(current): 
+                    grid_space = "   "
+                elif self.board.board_level(current) == 4: #special check for domes
                     grid_space = "   "
                 else:
                     player_token = self.board.board_get_token(current)
@@ -35,7 +37,7 @@ class Display:
 
     def print_color_legend(self, row_num):
         print(self.LEGEND_SPACING, end="")
-        cprint("level {0}".format(row_num), "grey", self.COLORS[row_num])
+        cprint(" level {0} ".format(row_num), "grey", self.COLORS[row_num])
 
     def print_row_legend(self, row_num):
         print(" {0} ".format(self.ROWS[row_num]), end="")
